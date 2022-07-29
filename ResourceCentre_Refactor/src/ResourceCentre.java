@@ -281,6 +281,7 @@ public class ResourceCentre {
 	}
 	//================================= Option 4 Return (CURD- Update)=================================
 	public static boolean doReturnCamcorder(ArrayList<Camcorder> camcorderList,String tag) {
+		//gay
 		boolean isReturned = false;
 
 		for (int i = 0; i < camcorderList.size(); i++) {

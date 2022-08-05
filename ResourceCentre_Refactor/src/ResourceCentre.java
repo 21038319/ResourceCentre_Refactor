@@ -28,10 +28,10 @@ public class ResourceCentre {
 		ArrayList<Camcorder> camcorderList = new ArrayList<Camcorder>();
 		ArrayList<Chromebook> chromebookList = new ArrayList<Chromebook>();
 
-		camcorderList.add(new Camcorder("CC001", "Sony HDR-CX405", 35));
-		camcorderList.add(new Camcorder("CC002", "Panasonic HC-MDH2", 10));
-		chromebookList.add(new Chromebook("CB001", "ASUS Chromebook ", "Win 10"));
-		chromebookList.add(new Chromebook("CB002", "HP Chromebook", "Win 10"));
+		camcorderList.add(new Camcorder("CC001", "Laksa"));
+		camcorderList.add(new Camcorder("CC002", "Nasi Lemak"));
+		chromebookList.add(new Chromebook("CB001", "Chicken rice"));
+		chromebookList.add(new Chromebook("CB002", "Mee Rebus"));
 
 		int option = 0;
 
@@ -55,13 +55,13 @@ public class ResourceCentre {
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
 				if (itemType == 1) {
-					// Add a camcorder
+					
 					Camcorder cc = inputCamcorder();
 					ResourceCentre.addCamcorder(camcorderList, cc);
 					System.out.println("Camcorder added");
 
 				} else if (itemType == 2) {
-					// Add Chromebook
+					
 					Chromebook cb = inputChromebook();
 					ResourceCentre.addChromebook(chromebookList, cb);
 					System.out.println("Chromebook added");
@@ -80,10 +80,10 @@ public class ResourceCentre {
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
 				if (itemType == 1) {
-					// Loan camcorder
+					
 					ResourceCentre.loanCamcorder(camcorderList);
 				} else if (itemType == 2) {
-					// Loan Chromebook
+					
 					ResourceCentre.loanChromebook(chromebookList);
 				} else {
 					System.out.println("Invalid type");
@@ -98,10 +98,10 @@ public class ResourceCentre {
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 				if (itemType == 1) {
-					// Return camcorder
+					
 					ResourceCentre.returnCamcorder(camcorderList);
 				} else if (itemType == 2) {
-					// Return Chromebook
+					
 					ResourceCentre.returnChromebook(chromebookList);
 				} else {
 					System.out.println("Invalid type");
@@ -118,8 +118,8 @@ public class ResourceCentre {
 	}
 
 	public static void menu() {
-		ResourceCentre.setHeader("RESOURCE CENTRE APP");
-		System.out.println("1. Display Inventory");
+		ResourceCentre.setHeader("Food Items Menu");
+		System.out.println("1. Display Menu");
 		System.out.println("2. Add item");
 		System.out.println("3. Loan item");
 		System.out.println("4. Return item");
@@ -156,9 +156,9 @@ public class ResourceCentre {
 		return output;
 	}
 	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
-		ResourceCentre.setHeader("CAMCORDER LIST");
-		String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
-				"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
+		ResourceCentre.setHeader("NOODLE LIST");
+		String output = String.format("%-10s %-30s %-10s %-10s\n", "FOOD TAG", "FOOD",
+				"AVAILABLE", "DUE DATE");
 		 output += retrieveAllCamcorder(camcorderList);	
 		System.out.println(output);
 	}
@@ -174,8 +174,8 @@ public class ResourceCentre {
 	}
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
 		
-		ResourceCentre.setHeader("CHROMEBOOK LIST");
-		String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
+		ResourceCentre.setHeader("RICE LIST");
+		String output = String.format("%-10s %-30s %-10s %-10s\n", "ASSET TAG", "FOOD",
 				 "AVAILABLE", "DUE DATE","OPERATING SYSTEM");
 		 output += retrieveAllChromebook(chromebookList);
 		System.out.println(output);
@@ -184,10 +184,9 @@ public class ResourceCentre {
 	//================================= Option 2 Add (CRUD - Create)=================================
 	public static Camcorder inputCamcorder() {
 		String tag = Helper.readString("Enter asset tag > ");
-		String description = Helper.readString("Enter description > ");
-		int zoom = Helper.readInt("Enter optical zoom > ");
+		String description = Helper.readString("Enter food > ");
 
-		Camcorder cc= new Camcorder(tag, description, zoom);
+		Camcorder cc= new Camcorder(tag, description);
 		return cc;
 		
 	}
@@ -199,10 +198,9 @@ public class ResourceCentre {
 	
 	public static Chromebook inputChromebook() {
 		String tag = Helper.readString("Enter asset tag > ");
-		String description = Helper.readString("Enter description > ");
-		String os = Helper.readString("Enter operating system > ");
+		String description = Helper.readString("Enter food > ");
 
-		Chromebook cb= new Chromebook(tag, description, os);
+		Chromebook cb= new Chromebook(tag, description);
 		return cb;
 		
 	}	
